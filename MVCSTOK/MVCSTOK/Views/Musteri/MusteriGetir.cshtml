@@ -1,0 +1,36 @@
+﻿
+@model MVCSTOK.Models.Entity.TBLMUSTERİLER
+
+
+
+@{
+    ViewBag.Title = "MusteriGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!-- başlangıçta actionresult musterigetir  bu sayfayı oluşturyor  normalde eğer actionr musterigüncelle  tanımşamış olmasaydık  burası güncelleye basınca boş sayfa olarak oluşucaktıb -->
+
+@using (Html.BeginForm("Guncelle", "Musteri", FormMethod.Post))
+
+{
+    <!-- burası güncelle actionresultı çalışınca çalışıcak peki güncelle nerede müşteride-->
+<div class="form-group">
+    @Html.LabelFor(m => m.MusteriId)
+    @Html.TextBoxFor(m => m.MusteriId, new { @class = "form-control" })
+
+
+    <br />
+
+    @Html.LabelFor(m => m.MusteriAd)
+    @Html.TextBoxFor(m => m.MusteriAd, new { @class = "form-control" })
+
+    <br />
+
+    @Html.LabelFor(m => m.MusteriSoyad)
+    @Html.TextBoxFor(m => m.MusteriSoyad, new { @class = "form-control" })
+</div>
+
+<div>
+    <button class="btn btn-warning ">Müşteri Güncelle </button>
+</div>
+}

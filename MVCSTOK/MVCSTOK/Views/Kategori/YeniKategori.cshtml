@@ -1,0 +1,31 @@
+﻿
+@model MVCSTOK.Models.Entity.TBLKATEGORİLER
+
+
+
+@{
+    ViewBag.Title = "YeniKategori";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<form class="form-group" method="post">
+    <!--form butona tıkladığım zaman işleyecek ve butona tıklama işlemi bir post(gönderme) işlemi olduğundan-->
+    <!--<div>
+        <label>Kategori Ad</label>
+        <input type="text" class="form-control" name="KATEGORIAD" />-->
+    <!-- mesela burada yukarıdaki classs form cont olmasaydı kategori adıı yazdıpımı< yer küçük olurdu -->
+    <!--</div>-->
+
+    <label>Kategori Ad</label>
+    @Html.TextBoxFor(m => m.KategoriAd, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.KategoriAd, "", new { @style = "color:red" })
+    <!--ValidationMessageFor eger ben bunu controller tarafında yen,katogri içinde çağırmazsam bu hata verir  
+        bak burada kırmızı yazmayı ayarladığımız html tbşktgrlore gidiyor ve oradaki requiredle bağlantşı-->
+    <div style=" margin-top:15px"> </div>
+    <button class="btn btn-info">
+        Kategori Ekle
+    </button>
+
+</form>

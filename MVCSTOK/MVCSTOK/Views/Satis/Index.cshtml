@@ -1,0 +1,45 @@
+﻿@model MVCSTOK.Models.Entity.TBLSATISLAR
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@*<h2>Satışlar Sayfası</h2>*@
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+
+    Satış Yap
+</button>
+@*data-toggle="modal": Bu bir data- özelliğidir ve yine Bootstrap'ta modal (açılır pencere) tetikleyici olarak kullanılır
+    . Bu özelliği eklediğinizde, bu butona tıklandığında bir modal açılır. data-toggle="modal" ifadesi, butonun bir modal açacağını belirtir.
+
+    data-target="#Model1": Hangi modal penceresinin açılacağını belirtir. #Model1, sayfada tanımlı bir modal penceresinin
+     id değeri olmalıdır. Yani bu butona tıklandığında, ID’si Model1 olan modal pencere açılacaktır.*@
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Satış Yapma Ekranı</h2>
+            </div>
+            @using (Html.BeginForm("YeniSatis", "Satis", FormMethod.Post))
+            {
+                <div class="modal-body">
+                    <label>Ürün Adı</label>
+                    @Html.TextBoxFor(m => m.Urun, new { @class = "form-control" })
+
+                    <br />
+                    <label>Müşteri Adı Soyadı</label>
+                    @Html.TextBoxFor(m => m.Musteri, new { @class = "form-control" })
+
+                    <label>Adet</label>
+                    @Html.TextBoxFor(m => m.Adet, new { @class = "form-control" })
+
+                    <br />
+                    <label>Fiyat</label>
+                    @Html.TextBoxFor(m => m.Fiyat, new { @class = "form-control" })
+
+                    <br />
+                    <button type="submit" class="btn btn-info">Satış İşlemini Yap </button>
+                    <button class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                </div>
+            }

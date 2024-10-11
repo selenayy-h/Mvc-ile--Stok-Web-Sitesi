@@ -1,0 +1,58 @@
+﻿@model MVCSTOK.Models.Entity.TBLURUNLER
+
+
+
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+ 
+
+            <h2>UrunGetir sayfası</h2>
+
+            <!-- güncelleye basınca beni ürüngetir sayfasına ataycacak -->
+
+
+            @using (Html.BeginForm("Guncelle", "Urun", FormMethod.Post))
+
+            {
+                <!-- burası güncelle actionresultı çalışınca çalışıcak peki güncelle nerede müşteride-->
+<div class="form-group">
+    @Html.LabelFor(m => m.UrunId)
+    @Html.TextBoxFor(m => m.UrunId, new { @class = "form-control" })
+
+
+    <br />
+
+    @Html.LabelFor(m => m.UrunAd)
+    @Html.TextBoxFor(m => m.UrunAd, new { @class = "form-control" })
+
+    <br />
+
+    @Html.LabelFor(m => m.UrunKategori)
+   @Html.DropDownListFor(m => m.UrunKategori, (IEnumerable<SelectListItem>)ViewBag.dgr, "Kategori Seçin", new { @class = "form-control" })
+  
+
+    <br />
+
+    @Html.LabelFor(m => m.Fiyat)
+    @Html.TextBoxFor(m => m.Fiyat, new { @class = "form-control" })
+
+
+
+    <br />
+
+    @Html.LabelFor(m => m.Marka)
+    @Html.TextBoxFor(m => m.Marka, new { @class = "form-control" })
+
+
+    <br />
+
+    @Html.LabelFor(m => m.Stok)
+    @Html.TextBoxFor(m => m.Stok, new { @class = "form-control" })
+</div>
+
+                <div>
+                    <button class="btn btn-warning ">Ürün Güncelle </button>
+                </div>
+            }
